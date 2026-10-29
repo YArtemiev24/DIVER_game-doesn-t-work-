@@ -1,0 +1,25 @@
+package ru.diver.screen;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+
+import java.awt.*;
+
+public class GameScreen extends StackPane{
+    public GameScreen(Runnable onBack){
+        Label title = new Label("Game screen");
+        title.setStyle("-fx-font-size: 36px; -fx-text-fill: white;");
+        Button backButton = new Button("BACK TO MENU");
+        backButton.setPrefWidth(240);
+        backButton.setOnAction(event -> onBack.run());
+
+        VBox content = new VBox(20, title, backButton);
+        content.setAlignment(Pos.CENTER);
+        getChildren().add(content);
+
+        setStyle("-fx-background-color:#123d52;");
+
+    }
+}
